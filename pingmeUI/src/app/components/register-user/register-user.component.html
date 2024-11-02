@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-center mb-4">Register</h3>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input id="username" formControlName="username" class="form-control" required placeholder="Enter your username">
+              </div>
+  
+              <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input id="password" formControlName="password" type="password" class="form-control" required placeholder="Enter your password">
+              </div>
+  
+              <button type="submit" class="btn btn-primary w-100" [disabled]="registerForm.invalid">Register</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pingmeAPI", "pingmeAPI\pingmeAPI.csproj", "{E027DDEF-A571-4E56-82B5-546B1945EC69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E027DDEF-A571-4E56-82B5-546B1945EC69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E027DDEF-A571-4E56-82B5-546B1945EC69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E027DDEF-A571-4E56-82B5-546B1945EC69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E027DDEF-A571-4E56-82B5-546B1945EC69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2019E9D6-5B50-413A-9221-2618DFE8E172}
+	EndGlobalSection
+EndGlobal
