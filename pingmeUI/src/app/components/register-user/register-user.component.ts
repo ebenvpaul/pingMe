@@ -6,7 +6,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
-import { ToastrService, ToastrModule } from 'ngx-toastr';
+
+import { AccountService } from '../../services/accountService.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register-user',
@@ -17,8 +19,8 @@ import { ToastrService, ToastrModule } from 'ngx-toastr';
 })
 export class RegisterUserComponent {
   constructor(private http: HttpClient) { }
+  private accountService = inject(AccountService);
   private toastr = inject(ToastrService);
-  private userService = inject(UserService);
   private fb = inject(FormBuilder);
   currentIp: string = '';
 
@@ -41,7 +43,7 @@ export class RegisterUserComponent {
   }
 
   getCurrentIp(): Observable<string> {
-    return this.userService.getCurrentIp().pipe(
+    return this.accountService.getCurrentIp().pipe(
       catchError(error => {
         console.error('Error fetching IP:', error);
         return of(''); // Handle error
@@ -57,10 +59,11 @@ export class RegisterUserComponent {
             id: uuidv4(),
             username: this.registerForm.value.username,
             passwordHash: this.registerForm.value.password, // Ensure to hash the password
-            connectionId: ip // Use the fetched IP
+            connectionId: ip, // Use the fetched IP
+            token: ''
           };
 
-          this.userService.registerUser(user).subscribe({
+          this.accountService.registerUser(user).subscribe({
             next: (user) => {
               this.toastr.success('User registered!', user.username + ' registered!');
               console.log('User registered:', user);

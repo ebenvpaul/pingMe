@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch Angular",
+        "type": "chrome",
+        "request": "launch",
+        "url": "https://localhost:4200",
+        "webRoot": "${workspaceFolder}/src/app"
+      },
+      {
+        "name": ".NET Core Attach",
+        "type": "coreclr",
+        "request": "attach",
+        "processId": "${command:pickProcess}"
+      }
+    ]
+  }
+  

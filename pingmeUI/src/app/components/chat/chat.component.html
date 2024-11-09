@@ -1,0 +1,40 @@
+<div class="container-fluid d-flex h-100">
+  <!-- Sidebar -->
+  <div class="col-md-4 col-lg-3 p-0 bg-light" style="min-width: 250px;">
+    <div class="sidebar p-3">
+      <h3 class="mb-4">Contacts</h3>
+      <ul class="list-group">
+        <li *ngFor="let user of users" (click)="selectUser(user)" class="list-group-item list-group-item-action">
+          {{ user.username }}
+          <!-- Active indicator -->
+          <span *ngIf="isUserActive(user.username)" class="badge bg-success">Active</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Chat Window -->
+  <div class="col-md-8 col-lg-9 p-0">
+    <div class="chat-window d-flex flex-column h-100">
+      <!-- Chat Header -->
+      <div class="chat-header bg-light p-3 d-flex align-items-center">
+        <h5 class="mb-0">{{ selectedUser?.username }}</h5>
+      </div>
+
+      <!-- Chat Messages -->
+      <div class="chat-messages flex-grow-1 p-3 overflow-auto">
+        <div *ngFor="let message of messageHistory" [ngClass]="{'outgoing': message.sender === 'self', 'incoming': message.sender !== 'self'}">
+          <div class="message">{{ message.content }}</div>
+        </div>
+      </div>
+
+      <!-- Chat Input -->
+      <div class="chat-input p-3 border-top">
+        <div class="d-flex">
+          <input type="text" [(ngModel)]="newMessage" class="form-control" placeholder="Type a message" />
+          <button (click)="sendMessage()" class="btn btn-success ms-2">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

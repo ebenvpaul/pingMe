@@ -1,0 +1,83 @@
+/* Prevent scrollbars and fit everything in the window */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+}
+
+.container-fluid {
+  height: 100%;
+}
+
+.sidebar {
+  height: 100%;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;  /* Allow scroll only in the sidebar if needed */
+}
+
+.chat-window {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent scrolling in the chat window */
+}
+
+.chat-header {
+  border-bottom: 1px solid #ddd;
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow-y: auto;  /* Allow scrolling if necessary but prefer to fit inside */
+}
+
+.message {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.outgoing {
+  background-color: #dcf8c6;
+  text-align: right;
+  margin-left: auto;
+}
+
+.incoming {
+  background-color: #fff;
+  text-align: left;
+  margin-right: auto;
+}
+
+.chat-input {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.chat-input input {
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.chat-input button {
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+.active-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+  display: inline-block;
+  margin-right: 10px;
+}
